@@ -1,4 +1,4 @@
-import { flattenObj } from './flattenObject';
+import { flattenObj } from "./flattenObject";
 
 describe('flattenObj', () => {
     const data = {

@@ -7,7 +7,7 @@ const config: Config = {
     transform: {
         '^.+\\.(ts|tsx)$': 'ts-jest',
     },
-    setupFilesAfterEnv: ['@testing-library/jest-dom'],
+    setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 };
 
-    export default config;
+export default config;

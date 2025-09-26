@@ -18,7 +18,7 @@ type Flattened = {
 }
 
 
-const flattenObj = (obj: any, initial_val = ''): Flattened => {
+export const flattenObj = (obj: any, initial_val = ''): Flattened => {
     let flattened_result: Flattened = {};
 
     Object.keys(obj).forEach((key) => {
