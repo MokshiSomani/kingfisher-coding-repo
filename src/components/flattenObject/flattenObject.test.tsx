@@ -20,11 +20,11 @@ describe('flattenObj', () => {
         const result = flattenObj(data);
         expect(result).toEqual({
             name: "Tejas",
-            "hobbies/anime": "Naruto",
-            "hobbies/country": "Japan",
-            "skills/frontend/primary": "React",
-            "skills/frontend/secondary": "Angular",
-            "skills/backend": "Node Js"
+            "hobbies.anime": "Naruto",
+            "hobbies.country": "Japan",
+            "skills.frontend.primary": "React",
+            "skills.frontend.secondary": "Angular",
+            "skills.backend": "Node Js"
         });
     });
 
@@ -32,7 +32,7 @@ describe('flattenObj', () => {
         expect(flattenObj({})).toEqual({});
     });
 
-    it('should handle non-nested objects', () => {
+    test('should handle non-nested objects', () => {
         expect(flattenObj({ a: 1, b: 2 })).toEqual({ a: 1, b: 2 });
     });
 

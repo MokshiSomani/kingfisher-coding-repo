@@ -21,14 +21,14 @@ type Flattened = {
 export const flattenObj = (obj: any, initial_val = ''): Flattened => {
     let flattened_result: Flattened = {};
 
-    Object.keys(obj).forEach((key) => {
-        const value_Of = obj[key];
-        const new_key = initial_val ? `${initial_val}/${key}` : key;
+    Object.keys(obj).forEach((prop) => {
+        const value_Of = obj[prop];
+        const new_prop = initial_val ? `${initial_val}.${prop}` : prop;
 
         if (value_Of && typeof value_Of === 'object' && !Array.isArray(value_Of)) {
-            Object.assign(flattened_result, flattenObj(value_Of, new_key));
+            Object.assign(flattened_result, flattenObj(value_Of, new_prop));
         } else {
-            flattened_result[new_key] = value_Of;
+            flattened_result[new_prop] = value_Of;
         }
     });
 
