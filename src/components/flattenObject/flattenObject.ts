@@ -1,22 +1,6 @@
-type data = {
-    name: string,
-    hobbies: {
-        anime: string;
-        country: string;
-    },
-    skills: {
-        frontend: {
-            primary: string,
-            secondary: string,
-        },
-        backend: string
-    }
+export type Flattened = {
+    [key: string]: string | any;
 }
-
-type Flattened = {
-    [key: string]: string;
-}
-
 
 export const flattenObj = (obj: any, initial_val = ''): Flattened => {
     let flattened_result: Flattened = {};

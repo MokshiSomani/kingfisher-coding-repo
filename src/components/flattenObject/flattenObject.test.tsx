@@ -1,4 +1,4 @@
-import { flattenObj } from "./flattenObject";
+import { flattenObj, type Flattened } from "./flattenObject";
 
 describe('flattenObj', () => {
     const data = {
@@ -26,6 +26,29 @@ describe('flattenObj', () => {
             "skills.frontend.secondary": "Angular",
             "skills.backend": "Node Js"
         });
+    });
+
+    test('should flatten object containing array', () => {
+        const arr = {
+            name: "Tejas",
+            hobbies: ["anime", "dance", "music"],
+            skills: {
+                frontend: {
+                    primary: "React",
+                    secondary: "Angular"
+                },
+                backend: "Node Js"
+            }
+        }
+        const expected: Flattened = {
+            name: "Tejas",
+            "hobbies": ["anime", "dance", "music"],
+            "skills.frontend.primary": "React",
+            "skills.frontend.secondary": "Angular",
+            "skills.backend": "Node Js"
+        };
+
+        expect(flattenObj(arr)).toEqual(expected);
     });
 
     test('should handle empty objects', () => {
